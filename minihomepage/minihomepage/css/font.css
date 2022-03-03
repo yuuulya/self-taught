@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&family=Nanum+Pen+Script&family=Single+Day&display=swap');
+
+
+.lefttop{
+	font-size: 12px;]
+}
+
+.profilemention{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:24px;
+}
+
+.cate1left{
+	line-height:1.5;	
+	text-align: center;
+	color:#ffffff;
+	font-weight: 900;
+}
+
+.mini {
+	color: #3794b0; 
+	font-weight: 900;
+	line-height: 10px;
+}
+
+.profilebottom .coding {
+	font-family: 'Dongle', sans-serif;
+	font-size:24px;
+	text-align:center;
+	
+}
+
+.update{
+	color: #3794b0; 
+	font-weight: 900;
+	line-height: 10px;	
+}
+
+.coding{
+	color:#144b8f;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.month{
+	font-weight: bold;
+	color:#144b8f;
+	font-size: 25px;;
+	font-family: 'Dongle', sans-serif;
+	line-height: 20px;
+}
+
+tr{
+	font-weight: bold;
+	color: rgb(92, 92, 88);
+	font-size: 14px;
+}
+
+.day{
+	color: #23728a; 
+	font-weight: bold;
+	font-size: 25px;;
+	font-family: 'Dongle', sans-serif;
+
+}
+
+.write {
+	color: rgb(65, 65, 63);
+	font-weight: bold;
+	font-size: 15px;;
+}
+
+.secret{
+	color: #ffffff;
+	
+}
