@@ -32,14 +32,12 @@
 .update{
 	flex:0.3;
 	margin-top:20px;
-
 }
 
 .cate{
 	flex:1;
 	display: flex;
 	line-height: 150%;
-	
 }
 
 
@@ -51,9 +49,7 @@
 }
 
 .cate1left{
-
 	flex:0.25;
-	
 	display: flex;
 	flex-direction:column;
 	margin-right:5px;
@@ -78,45 +74,44 @@
 .posttitle a:link {
 	color : black;
 	text-decoration: none;
-  }
- 
+}
+
 
 .posttitle a:visited {
 	color : black;
 	text-decoration: none;
-  }
-
+}
 
 .posttitle a:hover {
 	color : red;
 	text-decoration: none;
-  }
+}
 
 .posttitle a:active {
 	color : rgb(204, 106, 106);
 	text-decoration: none;
-  }
+}
 
 
 .sec a:link {
 	color : black;
 	text-decoration: none;
-  }
- 
+}
+
 .sec a:visited {
 	color : black;
 	text-decoration: none;
-  }
- 
+}
+
 .sec a:hover {
 	color : red;
 	text-decoration: none;
-  }
- 
+}
+
 .sec a:active {
 	color : rgb(204, 106, 106);
 	text-decoration: none;
-  }
+}
 
 
 .cate1right{
@@ -132,7 +127,6 @@
 
 .cate2{
 	flex:0.5;
-	
 	display:flex;
 	flex-direction:row;
 	margin-bottom:2px;
@@ -157,7 +151,6 @@
 
 .bottommain{
 	flex: 0.6;
-
 	margin-left:10px;
 	margin-right:10px;
 }

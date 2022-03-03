@@ -1,7 +1,7 @@
 .center {
-	flex:0.6;
-	display: flex;
-	flex-direction:column;
+    flex:0.6;
+    display: flex;
+    lex-direction:column;
 }
 
 .title {
@@ -12,7 +12,6 @@
 .main{
 	flex: 0.8px;
 	background-color:#ffffff;
-	
 	border: 1px solid #e6e3e3;
 	border-radius: 11px;
     margin: 0;
@@ -28,7 +27,6 @@
     margin: 10px;
     border-radius: 9px;
     border: 1px solid rgb(182, 182, 182);
-
     display: flex;
 }
 
@@ -57,8 +55,6 @@ td{
 .sun{
     color:red;
 }
-
-
 
 
 .diaryform{
@@ -91,8 +87,7 @@ td{
     width: 500px;
     text-align: center;   
     line-height: 40px;
-    padding-bottom: 30px;
-    
+    padding-bottom: 30px;  
 }
 
 .secret{
@@ -101,7 +96,6 @@ td{
     height: 50px;
     text-align: center;
     color:#ffffff;
-    
     margin-left: 230px;
     margin-top: 20px;
     margin-bottom: 70px;
@@ -114,25 +108,19 @@ td{
     transition: 1000ms ease all;
     cursor: pointer;
     background-color: #1b996f; 
-
-
 }
 
 .diary-button{
     width: 150px;
     height: 50px;
     text-align: center;
-    /* background-color: #ffffff;
-    color: #ffffff; */
-
     background-color: #fff;
     padding: 15px;
     border: none;
     border-radius: 7px;
     color: #fff;
     display: block;
-  
-  }
+}
 
 .icon{
     color:rgb(255, 255, 255);
@@ -164,4 +152,4 @@ td{
     line-height: 40px;
     padding-bottom: 30px;
 }
-  
+

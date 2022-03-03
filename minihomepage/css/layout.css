@@ -9,7 +9,6 @@ body { /*패턴바탕*/
     right: 0;
 }
 
-
 .bookcover { /*파란바탕*/
     background-color: #b4d1da;
     border-radius: 9px;
@@ -20,20 +19,15 @@ body { /*패턴바탕*/
     position: relative;
 }
 
-
-
 .bookdot { /*점선*/
     border: 2px dashed #f5f5f5;
     border-radius: 9px;
-
-
     position: absolute; 
     top: 15px;
     left: 15px;
     width: 930px;
     height: 630px;
 }
-
 
 .page {/*제일 안쪽 바탕*/
     background-color: #f5f5f5;
@@ -46,17 +40,13 @@ body { /*패턴바탕*/
     height: 610px;  
 }
 
-
-    
 .container{
     position: absolute;
     top: 20px;
     left: 20px;
     right:20px;
     bottom:20px;
-    
     display: flex;
-    
     width: 870px;
     height: 570px;
 }
@@ -64,53 +54,37 @@ body { /*패턴바탕*/
 
 .left {
     flex:0.3;
-    
     display:flex;
     flex-direction: column;
     padding-right: 15px;    
 }
 
-
 .first{
     padding :1px;
     flex:0.05;
     padding-left: 10px; 
-
 }
-
-
 
 .profile {
     flex:0.95;
     background-color:#ffffff;
     border: 1px solid #e6e3e3;
     border-radius: 11px;
-    
     padding-left: 15px;
     padding-right: 15px;
-    
     display: flex;
     flex-direction:column;
-    
-    
 }
-
 
 .profileimg{
     flex:0.3;
-    
     background-image: url("../images/profile.PNG");
     background-repeat: no-repeat;
     background-size: cover;
-
-
-    
     margin-top: 30px;
-    
     margin-bottom: 5px;
-
-
 }
+
 .profilemention{
     flex:0.4;
     align-items: flex-start;
@@ -118,53 +92,36 @@ body { /*패턴바탕*/
     margin-left: 10px;
 }
 
-
-
-
 .profilebottom{
     flex:0.3;
 }
-
 
 .coding{
     margin-top: 10px;
     color:#144b8f;
     margin-bottom: 5px;
-
-
 }
-
-
 
 .my {
     flex:0.8;
     padding-left:40px;
 }
 
-
 .address{
     flex:0.8;
-    margin-right:30px;
+    padding-right:20px;
     text-align: right;
-    line-height: 25px;
-    font-size: 13px;
 }
-
-
 
 .bar {
     width:550px align="center";
 }
-
 
 .full{
     background-image: url("../images/giphy.gif");
     width: 555px; 
     height: 280px;;
 }
-
-
-
 
 .menubar #home{
     flex:0.07;
@@ -178,10 +135,7 @@ body { /*패턴바탕*/
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
     background-color: #3794b0;
-    
 }
-    
-
 
 .menubar #diary, #photobook, #guestbook{
     flex:0.07;
@@ -195,18 +149,13 @@ body { /*패턴바탕*/
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
     background-color: #3794b0;
-    
 }
-
-
 
 .menubar{
     flex:0.1;
-    
     display:flex;
     flex-direction:column;
 }
-
 
 .menubar a{
     text-decoration: none;
@@ -215,16 +164,11 @@ body { /*패턴바탕*/
     font-size: 15px;
 }
 
-
-
 .menubar #home:hover,#diary:hover, #photobook:hover, #guestbook:hover {
     background-color: #7d70b3;
 }
 
-
-
 .dropbt {
-    
     font-size: 13px;
     cursor: pointer;
     width: 110px;
@@ -232,18 +176,14 @@ body { /*패턴바탕*/
     border: 0.5px solid;
     text-align: left;
     padding-left: 13px;
-    
 }
+
 .dropdown{
     position: relative;
     display: inline-block;
     zoom:1;
     padding-left: 10px;
-    
-
-
 }
-
 
 ul, li {
     list-style: none;
@@ -251,9 +191,7 @@ ul, li {
     height: 20px;
     padding-top: 0;
     padding-right: 1;
-    
 }
-
 
 .dropdown-content{
     display: none;
@@ -267,11 +205,7 @@ ul, li {
     margin: 5px;
     padding-bottom:10px;
     text-align: center;
-    
-
-
 }
-
 
 .dropdown-content a{
     color: rgb(27, 25, 25);
@@ -280,16 +214,14 @@ ul, li {
     display: black;
 }
 
-
-
 .dropdown-content li{
     margin-top: 10px;
 }
 
-
 .dropdown-content li:hover {
     background-color: #e0e4e4;
 }
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
