@@ -1,6 +1,6 @@
 # MINI HOMEPAGE PROJECT with.CODEMATE
 
-> 2022.02.03(목), 2022.02.25(금)
+> 2022.02.03(목) ~ 2022.02.25(금)
 
 > 출처 : https://cafe.naver.com/codeuniv/60359
 
