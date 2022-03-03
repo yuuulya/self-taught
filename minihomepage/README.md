@@ -1,50 +1,30 @@
-# 코뮤니티 
+# MINI HOMEPAGE PROJECT with.CODEMATE
 
-> 2022.02.16(수), 2022.02.19(토)
+> 2022.02.03(목), 2022.02.25(금)
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/66001046/152260938-51b1334f-297f-4092-8f37-f02dc9cd3a07.png" alt="coding" width="150px" />
-</p>
+> 출처 : https://cafe.naver.com/codeuniv/60359
 
+<br><br>
 
+### Demo
 
-### Algorithm
+- https://yuuulya.github.io/self-taught/minihomepage/home.html
 
-- [**백준**](https://www.acmicpc.net/) 사이트에서 알고리즘 문제 선택<br><br>
-<table>
-	<tr>
-		<th>날짜</th>
-		<th>문제</th>
-	</tr>
-	<tr>
-		<th rowspan="4" align="center" width="150px">
-		2월 3주차<br>16일(수)
-		</th>
-		<td>Q2775 - 부녀회장이 될테야</td>
-	</tr>
-	<tr>
-		<td>Q2857 - FBI</td>
-	</tr>
-	<tr>
-		<td>Q2863 - 이게 분수?</td>
-	</tr>
-	<tr>
-		<td>Q1871 - 좋은 자동차 번호판</td>
-	</tr>
-	<tr>
-		<th rowspan="4" align="center" width="150px">
-		2월 3주차<br>19일(토)
-		</th>
-		<td>Q2896 - 무알콜 칵테일</td>
-	</tr>
-	<tr>
-		<td>Q3449 - 해밍 거리</td>
-	</tr>
-	<tr>
-		<td>Q3943 - 헤일스톤 수열</td>
-	</tr>
-	<tr>
-		<td>Q14710 - 고장난 시계</td>
-	</tr>
-</table>
+  <br><br>
 
+### 개발목표
+
+    - flex로 레이아웃 제작
+    - CSS파일 분리
+    - 배웠던 기능(*)을 활용하여 홈페이지 제작
+      (*) 멀티미디어 삽입, 폰트변경, hover, 탭 이동, 드롭박스, 링크연결 등
+
+<br><br>
+
+### 사용기술
+
+    - HTML
+    - CSS
+    - JAVASCRIPT(아주조금)
+
+<br><br>
