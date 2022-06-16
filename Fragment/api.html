@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API 불러오기 연습</title>
+    <link rel="stylesheet" href="api.css">
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1> 카카오 API를 활용하여 책 검색 하기 </h1>
+        <input id="bookName" value="" type="text">
+        <button id="search"> 검색</button>
+        <br>
+        <div class="bookWrap">
+            <p id="bookTitle"></p>
+            <p id="bookImg"></p>
+        </div>
+    </section>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#search").click(function () {
+                $.ajax({
+                    //전송방식
+                    method: "GET",
+                    //전송 주소
+                    url: "https://dapi.kakao.com/v3/search/book?target=title",
+                    //보낼 데이터
+                    data: { query: $("#bookName").val() },
+                    // ★★ 사용시 REST API KEY 값 입력할 것 ★★
+                    // https://developers.kakao.com/ > 내 어플리케이션 > REST API 키
+                    headers: { Authorization: "KakaoAK ★★★★★★★★ " }
+                })
+                    .done(function (msg) {
+                        $("#bookTitle").html("<strong>" + msg.documents[0].title + "</strong>");
+                        $("#bookImg").html("<img src= '" + msg.documents[0].thumbnail + "'/>");
+                    });
+            })
+        })
+    </script>
+</body>
+
+</html>
