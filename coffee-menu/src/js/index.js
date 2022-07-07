@@ -21,6 +21,53 @@ function App() {
     });
   //★★ submit = form 에 전송되는 이벤트 
 
+  const addMenuName = () => {
+    if ($("#espresso-menu-name").value === "") {
+      alert("값을 입력해주세요");
+      return;
+      //뒷 내용이 실행되는 것을 방지 
+    }
+    const espressoMenuName = $("#espresso-menu-name").value;
+    const menuItemTemplate = (espressoMenuName) => {
+      return `
+        <li class="menu-list-item d-flex items-center py-2">
+          <span class="w-100 pl-2 menu-name">${espressoMenuName}</span>
+          <button
+            type="button"
+            class="bg-gray-50 text-gray-500 text-sm mr-1 menu-edit-button"
+          >
+            수정
+          </button>
+          <button
+            type="button"
+            class="bg-gray-50 text-gray-500 text-sm menu-remove-button"
+          >
+            삭제
+          </button>
+        </li>
+        `;
+    };
+    //[4]==================================================================
+    $("#espresso-menu-list").insertAdjacentHTML(
+      "BEFOREEND",
+      // 위와 같이 beforeend를 대문자로 써도 무방
+      menuItemTemplate(espressoMenuName));
+    // insertAdjacentHTML ; https://developer.mozilla.org/ko/docs/Web/API/Element/insertAdjacentHTML
+
+    //[3]==================================================================
+    // querySelectorAll
+    const menuCount = $("#espresso-menu-list").querySelectorAll("li").length;
+    $(".menu-count").innerText = `총 ${menuCount} 개`;
+    //[5]==================================================================
+    $("#espresso-menu-name").value = "";
+
+    console.log(menuItemTemplate(espressoMenuName));
+  };
+
+  $("#espresso-menu-submit-button").addEventListener("click", () => {
+    addMenuName();
+  });
+
   //[1]==================================================================
   //메뉴의 이름을 입력받음
   $("#espresso-menu-name")
@@ -28,48 +75,7 @@ function App() {
       if (e.key !== "Enter") {
         return;
       }
-      if ($("#espresso-menu-name").value === "") {
-        alert("값을 입력해주세요");
-        return;
-        //뒷 내용이 실행되는 것을 방지 
-      }
-      if (e.key === 'Enter') {
-        const espressoMenuName = $("#espresso-menu-name").value;
-        const menuItemTemplate = (espressoMenuName) => {
-          return `
-          <li class="menu-list-item d-flex items-center py-2">
-            <span class="w-100 pl-2 menu-name">${espressoMenuName}</span>
-            <button
-              type="button"
-              class="bg-gray-50 text-gray-500 text-sm mr-1 menu-edit-button"
-            >
-              수정
-            </button>
-            <button
-              type="button"
-              class="bg-gray-50 text-gray-500 text-sm menu-remove-button"
-            >
-              삭제
-            </button>
-          </li>
-          `;
-        };
-        //[4]==================================================================
-        $("#espresso-menu-list").insertAdjacentHTML(
-          "BEFOREEND",
-          // 위와 같이 beforeend를 대문자로 써도 무방
-          menuItemTemplate(espressoMenuName));
-        // insertAdjacentHTML ; https://developer.mozilla.org/ko/docs/Web/API/Element/insertAdjacentHTML
-
-        //[3]==================================================================
-        // querySelectorAll
-        const menuCount = $("#espresso-menu-list").querySelectorAll("li").length;
-        $(".menu-count").innerText = `총 ${menuCount} 개`;
-        //[5]==================================================================
-        $("#espresso-menu-name").value = "";
-
-        console.log(menuItemTemplate(espressoMenuName));
-      }
+      addMenuName();
     });
 }
 
