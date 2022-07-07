@@ -22,14 +22,10 @@
 // 구현하고자 하는 기능의 요구사항을 정리하고 그 요구사항에 맞는 지식에 맞춰 공부해 나가면서 구현하면
 // 좀 더 재미있게 구현해 나갈 수 있다. 
 
-
-
-
 const $ = (selector) => document.querySelector(selector);
 // $ : 자바스크립트에서의 DOM element를 가져올 때 관용적으로 많이 사용
 
 function App() {
-
 
   const updateMenuCount = () => {
     // querySelectorAll
@@ -63,18 +59,13 @@ function App() {
         </li>
         `;
     };
-    //[4]==================================================================
     $("#espresso-menu-list").insertAdjacentHTML(
       "BEFOREEND",
       // 위와 같이 beforeend를 대문자로 써도 무방
       menuItemTemplate(espressoMenuName));
-    // insertAdjacentHTML ; https://developer.mozilla.org/ko/docs/Web/API/Element/insertAdjacentHTML
-
-    //[3]==================================================================
     updateMenuCount();
-    //[5]==================================================================
-    $("#espresso-menu-name").value = "";
 
+    $("#espresso-menu-name").value = "";
     console.log(menuItemTemplate(espressoMenuName));
   };
 
@@ -96,7 +87,7 @@ function App() {
     }
   };
 
-  //Event Binding
+  //Event Binding====================================
 
   //★★ submit = form 에 전송되는 이벤트 
   $("#espresso-menu-submit-button").addEventListener("click", addMenuName);
