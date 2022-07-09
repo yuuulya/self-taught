@@ -1,26 +1,28 @@
-//step 1 요구사항 구현을 위한 전략 
-
+/* 
+[요구사항 1]
+  
 //TODO 메뉴 추가 
-// - 메뉴의 이름을 입력 받고 확인 버튼을 누르면 메뉴가 추가된다. 
-// - 메뉴의 이름을 입력 받고 엔터키 입력으로 추가한다. 
-// - 총 메뉴 갯수를 count하여 상단에 보여준다.
-// - 추가되는 메뉴의 아래 마크업은 `<ul id="espresso-menu-list" class="mt-3 pl-0"></ul>` 안에 삽입해야 한다.
-// - 메뉴가 추가되고 나면, input은 빈 값으로 초기화한다. 
-// - 사용자 입력값이 빈 값이라면 추가되지 않는다. 
+- 메뉴의 이름을 입력 받고 확인 버튼을 누르면 메뉴가 추가된다. 
+- 메뉴의 이름을 입력 받고 엔터키 입력으로 추가한다. 
+- 총 메뉴 갯수를 count하여 상단에 보여준다.
+- 추가되는 메뉴의 아래 마크업은 `<ul id="espresso-menu-list" class="mt-3 pl-0"></ul>` 안에 삽입해야 한다.
+- 메뉴가 추가되고 나면, input은 빈 값으로 초기화한다. 
+- 사용자 입력값이 빈 값이라면 추가되지 않는다. 
 
 //TODO 메뉴 수정
-// - 메뉴의 수정 버튼을 누르면 prompt 인터페이스가 나온다.
-// - 사용자 입력값이 빈 값이라면 추가되지 않는다. (**)
-// - 확인 버튼을 누르면 메뉴 정보를 업데이트 한다.
-// - 취소 버튼을 누르면 다시 원래 페이지로 돌아온다.
+- 메뉴의 수정 버튼을 누르면 prompt 인터페이스가 나온다.
+- 사용자 입력값이 빈 값이라면 추가되지 않는다. (**)
+- 확인 버튼을 누르면 메뉴 정보를 업데이트 한다.
+- 취소 버튼을 누르면 다시 원래 페이지로 돌아온다.
 
 //TODO 메뉴 삭제
-// - 메뉴 삭제 버튼을 누르면 confirm 알림창이 뜬다.
-// - confirm 에서 확인을 누르면 메뉴가 삭제된다
-// - confirm에서 취소를 누르면 메뉴가 삭제되지 않는다.
-
+- 메뉴 삭제 버튼을 누르면 confirm 알림창이 뜬다.
+- confirm 에서 확인을 누르면 메뉴가 삭제된다
+- confirm에서 취소를 누르면 메뉴가 삭제되지 않는다.
+*/
 
 /*
+[요구사항 2]
 TODO  loca storage Read & Write
 - lcoal storage에 데이터를 저장한다
 - 새로고침하면 저장된 데이터를 읽어온다. 
@@ -43,10 +45,42 @@ TODO sold out
 
 */
 
+
+/* 
+[요구사항 3]
+ 링크에 있는 웹 서버 저장소를 clone하여 로컬에서 웹 서버를 실행시킨다.
+ 웹 서버를 띄워서 실제 서버에 데이터의 변경을 저장하는 형태로 리팩터링한다.
+ localStorage에 저장하는 로직은 지운다.
+ fetch 비동기 api를 사용하는 부분을 async await을 사용하여 구현한다.
+ API 통신이 실패하는 경우에 대해 사용자가 알 수 있게 alert으로 예외처리를 진행한다.
+ 중복되는 메뉴는 추가할 수 없다.
+*/
+
 import { $ } from "./dom.js";
 
 import store from './store.js';
 
+const BASE_URL = "http://localhost:3000/api";
+
+const MenuApi = {
+  async getAllMenuByCategory(category) {
+    //await 을 사용하기 위해서는 async를 써줘야 함 
+    const response = await fetch(`${BASE_URL}/category/${category}/menu`)
+    return response.json;
+  },
+  async createMenu(name) {
+    const response = await fetch(`${BASE_URL}/category/${this.currentCategory}/menu`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name }),
+    });
+    if (!response.ok) {
+      console.error("에러가 발생했습니다");
+    }
+  },
+};
 
 function App() {
 
@@ -63,10 +97,15 @@ function App() {
   this.currentCategory = 'espresso';
   //카테고리 선택에 따라 메뉴 변경. 단, 초기값 espresso
 
-  this.init = () => {
+  this.init = async () => {
+    /*
     if (store.getLocalStorage()) {
       this.menu = store.getLocalStorage();
     };
+    */
+    this.menu[this.currentCategory] = await MenuApi.getAllMenuByCategory(
+      this.currentCategory
+    );
     render();
     initEventListeners();
   };
@@ -75,7 +114,7 @@ function App() {
   const render = () => {
     const template = this.menu[this.currentCategory].map((menuItem, index) => {
       return `
-      <li data-menu-id="${index}" class="menu-list-item d-flex items-center py-2">
+      <li data-menu-id="${index}" class= "menu-list-item d-flex items-center py-2">
         <span class="w-100 pl-2 menu-name ${menuItem.soldOut ? 'sold-out' : ""} ">${menuItem.name}</span>
         <button
         type="button"
@@ -100,33 +139,41 @@ function App() {
       .join("");
     $("#menu-list").innerHTML = template;
     updateMenuCount();
-  }
+  };
 
   //메뉴 갯수 변경
   const updateMenuCount = () => {
-    // querySelectorAll
     const menuCount = this.menu[this.currentCategory].length
     $(".menu-count").innerText = `총 ${menuCount} 개`;
   };
 
   //메뉴 추가
-  const addMenuName = () => {
+  const addMenuName = async () => {
+    //비동기 통신이 있는 함수에 async
+
     if ($("#menu-name").value === "") {
       alert("값을 입력해주세요");
       return;
       //return : 뒷 내용이 실행되는 것을 방지 
     }
-    console.log("추가중");
     const menuName = $("#menu-name").value;
-    console.log("추가중2");
-    this.menu[this.currentCategory].push({ name: menuName });
-    console.log("추가중3");
-    //카테고리별로 localstorage에 저장 
-    //특정 key값을 문자열로 표현해줄 때, menu[this.currentCategory]로 작성할 수 있음 
-    //* menu[this.currentCategory] = espresso 
-    store.setLocalStorage(this.menu);
+
+    await MenuApi.createMenu(menuName);
+    this.menu[this.currentCategory] = await MenuApi.getAllMenuByCategory(
+      this.currentCategory
+    );
     render();
     $("#menu-name").value = "";
+    /* 
+    [local storage 저장시 사용하는 코드]
+
+    this.menu[this.currentCategory].push({ name: menuName });
+    //카테고리별로 localstorage에 저장 
+    //특정 key값을 문자열로 표현해줄 때, menu[this.currentCategory]로 작성할 수 있음 
+
+    menu[this.currentCategory] = espresso 
+    store.setLocalStorage(this.menu);
+    */
   };
 
   //메뉴 이름 변경
@@ -212,9 +259,7 @@ function App() {
     });
 
   };
-
-
-}
+};
 
 const app = new App();
 app.init();
