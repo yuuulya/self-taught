@@ -1,5 +1,5 @@
-// node mailer https://nodemailer.com/about/
-// mailtrap https://mailtrap.io/
+// node mailer : https://nodemailer.com/about/
+// mailtrap  : https://mailtrap.io/
 
 const nodemailer = require('nodemailer');
 
