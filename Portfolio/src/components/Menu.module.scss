@@ -1,0 +1,32 @@
+.menuWrap {
+  height: 100%;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  .menu {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 30px;
+
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    a {
+      border: 1px solid #000;
+      border-radius: 10px;
+      display: block;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+}
