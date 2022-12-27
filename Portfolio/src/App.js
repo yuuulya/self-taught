@@ -4,6 +4,8 @@ import Root from "./components/Root";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
 import Product from "./components/Product";
+import About from "./components/Skills";
+import Skills from "./components/Skills";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +14,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
+      { path: "/skills", element: <Skills /> },
       { path: "/product", element: <Product /> },
     ],
   },

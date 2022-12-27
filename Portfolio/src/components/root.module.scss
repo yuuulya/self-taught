@@ -8,7 +8,8 @@ body {
   height: 100%;
 }
 .root {
-  height: 100vh;
-  border: 1px solid black;
+  overflow: hidden;
+  height: 100%;
   display: flex;
+  position: relative;
 }
