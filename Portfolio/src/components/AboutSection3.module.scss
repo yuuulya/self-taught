@@ -1,0 +1,41 @@
+.container {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.container > img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  position: absolute;
+  top: 20%;
+  left: 200px;
+  font-size: 30px;
+  text-align: left;
+}
+
+.content {
+  width: 70%;
+  position: absolute;
+  top: 35%;
+  left: 200px;
+  font-size: 30px;
+  text-align: left;
+  font-size: 16px;
+  ul {
+    li {
+      margin-bottom: 30px;
+      .eduTitle {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

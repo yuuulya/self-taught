@@ -7,6 +7,7 @@ const Root = () => {
   return (
     <div className={style.root}>
       <Menu />
+      <Menu />
       <Outlet />
     </div>
   );

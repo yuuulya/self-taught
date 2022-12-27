@@ -5,13 +5,12 @@ import style from "./Menu.module.scss";
 const Menu = () => {
   return (
     <header>
-      <div className={style.logo}></div>
       <ul className={style.menuWrap}>
         <li className={style.menu}>
-          <Link to="/">HOME</Link>
+          <Link to="/#no1">About</Link>
         </li>
         <li className={style.menu}>
-          <Link to="/product">Product</Link>
+          <Link to="/skills">Skills</Link>
         </li>
       </ul>
     </header>

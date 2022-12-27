@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 import ReactFullpage from "@fullpage/react-fullpage";
 
 import "./Home.css";
-import Info from "./Info";
+import AboutSection1 from "./AboutSection1";
+import AboutSection2 from "./AboutSection2";
+import AboutSection3 from "./AboutSection3";
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
 
@@ -32,13 +34,13 @@ class Home extends React.Component {
       sectionsColor: [...originalColors],
       fullpages: [
         {
-          text: <Info />,
+          text: <AboutSection1 />,
         },
         {
-          text: "Section 2dd",
+          text: <AboutSection2 />,
         },
         {
-          text: "Section 3",
+          text: <AboutSection3 />,
         },
       ],
     };
@@ -90,7 +92,7 @@ class Home extends React.Component {
               {fullpages.map(({ text }) => (
                 <div key={text} className={SEL}>
                   <div className="slide">
-                    <h3>{text}</h3>
+                    <div>{text}</div>
                   </div>
                 </div>
               ))}
