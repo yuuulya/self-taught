@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction, createReducer, configureStore } from "@reduxjs/toolkit";
 
 const ADD = "ADD";
 const DELETE = "DELETE";
@@ -47,16 +47,18 @@ const deleteToDo = createAction("DELETE");
 // @@ redux toolkit - createReducer
 const reducer = createReducer([], {
   [addToDo]: (state, action) => {
-    // state를 mutate 
+    // state를 mutate
     state.push({ text: action.payload, id: Date.now() });
   },
   [deleteToDo]: (state, action) => {
-    // 새로운 array를 반환 
+    // 새로운 array를 반환
     return state.filter((toDo) => toDo.id !== action.payload);
   },
 });
 
-const store = createStore(reducer);
+// const store = createStore(reducer);
+
+const store = configureStore({reducer});
 
 export const actionCreators = {
   addToDo,
