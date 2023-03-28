@@ -1,8 +1,13 @@
 import { createStore } from "redux";
-import { createAction, createReducer, configureStore } from "@reduxjs/toolkit";
+import {
+  createAction,
+  createReducer,
+  configureStore,
+  createSlice,
+} from "@reduxjs/toolkit";
 
-const ADD = "ADD";
-const DELETE = "DELETE";
+// const ADD = "ADD";
+// const DELETE = "DELETE";
 
 // @@ redux로 작성
 // const addToDo = (text) => {
@@ -20,10 +25,12 @@ const DELETE = "DELETE";
 // };
 
 // @@ redux toolkit
+// const addToDo = createAction("ADD");
+// const deleteToDo = createAction("DELETE");
 
-const addToDo = createAction("ADD");
-const deleteToDo = createAction("DELETE");
+// ===================================================
 
+// @@ redux로 작성
 // const reducer = (state = [], action) => {
 //   switch (action.type) {
 //     // redux
@@ -45,24 +52,35 @@ const deleteToDo = createAction("DELETE");
 // };
 
 // @@ redux toolkit - createReducer
-const reducer = createReducer([], {
-  [addToDo]: (state, action) => {
-    // state를 mutate
-    state.push({ text: action.payload, id: Date.now() });
-  },
-  [deleteToDo]: (state, action) => {
-    // 새로운 array를 반환
-    return state.filter((toDo) => toDo.id !== action.payload);
+// const reducer = createReducer([], {
+//   [addToDo]: (state, action) => {
+//     // state를 mutate
+//     state.push({ text: action.payload, id: Date.now() });
+//   },
+//   [deleteToDo]: (state, action) => {
+//     // 새로운 array를 반환
+//     return state.filter((toDo) => toDo.id !== action.payload);
+//   },
+// });
+
+const toDos = createSlice({
+  name: "toDosReducer",
+  initialState: [],
+  reducers: {
+    add: (state, action) => {
+      state.push({ text: action.payload, id: Date.now() });
+    },
+    remove: (state, action) => {
+      return state.filter((toDo) => toDo.id !== action.payload);
+    },
   },
 });
 
 // const store = createStore(reducer);
 
-const store = configureStore({reducer});
+const store = configureStore({ reducer: toDos.reducer });
+console.log(store);
 
-export const actionCreators = {
-  addToDo,
-  deleteToDo,
-};
+export const { add, remove } = toDos.actions;
 
 export default store;
