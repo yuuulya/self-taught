@@ -8,9 +8,10 @@ function App() {
   const [y, setY] = useState<number>(0);
   const [oper, setOper] = useState<string>("&");
 
+  const change
   return (
     <div>
-      <Calc x={x} y={y} oper={oper} />
+      <Calc x={x} y={y} oper={oper}  />
     </div>
   );
 }
