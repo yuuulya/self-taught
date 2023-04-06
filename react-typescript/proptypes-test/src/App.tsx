@@ -5,8 +5,8 @@ import Calc from "./Calc";
 
 function App() {
   const [x, setX] = useState<number>(100);
-  const [y, setY] = useState<number>(200);
-  const [oper, setOper] = useState<string>("+");
+  const [y, setY] = useState<number>(0);
+  const [oper, setOper] = useState<string>("&");
 
   return (
     <div>
