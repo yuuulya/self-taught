@@ -1,0 +1,27 @@
+{
+  "name": "react-nodebird",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "author": "Yuuulya",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@ctrl/tinycolor": "^3.3.1",
+    "antd": "^4.24.0",
+    "next": "^9.5.5",
+    "prop-types": "^15.8.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "styled-component": "^2.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}
